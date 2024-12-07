@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<form method="post">
+    <input type="text" name="query" placeholder="Search for a song">
+    <button type="submit">Search</button>
+</form>
+{% if songs %}
+    <ul>
+    {% for song in songs %}
+        <li>
+            <a href="/song/{{ song['id'] }}">{{ song['title'] }} by {{ song['artist-credit'][0]['artist']['name'] }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

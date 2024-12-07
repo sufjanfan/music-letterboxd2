@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    <div class="title-container">
+        <h1 class="space-mono-regular" style="font-size: 30px">welcome to</h1>
+        <br>
+        <h1 class="syne" style="line-height: 0.7">musicboxd</h1>
+    </div>
+
+    <div>
+        <p>Rate and review your favorite songs.</p>
+        {% if not session.get("user_id") %}
+            <a href="/login" class="btn">Login</a>
+            <a href="/register" class="btn">Register</a>
+        {% else %}
+            <a href="/profile" class="btn">Go to Profile</a>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
